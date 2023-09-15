@@ -3,8 +3,8 @@ package com.example.classic.services;
 import org.springframework.stereotype.Component;
 
 @Component
-public class AccountService {
-    public String account(){
-        return "I'm accountService";
+public class LoanService {
+    public String loan(){
+        return "I'm loanService";
     }
 }
