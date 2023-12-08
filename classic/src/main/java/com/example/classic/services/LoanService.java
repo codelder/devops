@@ -5,6 +5,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoanService {
     public String loan(){
-        return "I'm loanService";
+        return "I'm loan service";
     }
 }

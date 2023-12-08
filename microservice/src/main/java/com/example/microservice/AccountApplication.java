@@ -19,6 +19,6 @@ public class AccountApplication {
 
     @GetMapping("/account")
     public String account() {
-        return "I'm accountService";
+        return "I'm account application";
     }
 }

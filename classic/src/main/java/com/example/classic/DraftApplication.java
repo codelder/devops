@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
-public class ClassicApplication {
+public class DraftApplication {
 
 	private SettlementService settlementService;
 	private LoanService loanService;
@@ -26,12 +26,12 @@ public class ClassicApplication {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(ClassicApplication.class, args);
+		SpringApplication.run(DraftApplication.class, args);
 	}
 
-	@GetMapping("/healthy")
+	@GetMapping("/draft")
 	public String healthy() {
-		return String.format(settlementService.settle()+"<br/>"+loanService.loan());
+		return String.format(settlementService.settle()+"<br/>"+loanService.loan()+"<br/>I'm draft application");
 	}
 
 }
