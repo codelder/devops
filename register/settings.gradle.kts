@@ -1,1 +1,2 @@
-rootProject.name = "register"
+//rootProject.name = "register"
+include("account","settlement","loan","draft")
