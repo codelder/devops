@@ -1,0 +1,9 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: loan
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.20.2

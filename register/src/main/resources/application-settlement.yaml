@@ -1,0 +1,12 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: settlement
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.20.2
+logging:
+  level:
+    root: info
