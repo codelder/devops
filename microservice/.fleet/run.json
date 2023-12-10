@@ -1,0 +1,24 @@
+{
+  "configurations": [
+   {
+      "type": "gradle",
+      "name": "runAccountApplication",
+      "tasks": ["runAccountApplication"],
+    },
+    {
+      "type": "gradle",
+      "name": "runDraftApplication",
+      "tasks": ["runDraftApplication"],
+    },
+    {
+      "type": "gradle",
+      "name": "runLoanApplication",
+      "tasks": ["runLoanApplication"],
+    },
+    {
+      "type": "gradle",
+      "name": "runSettlementApplication",
+      "tasks": ["runSettlementApplication"],
+    },
+  ]
+}
