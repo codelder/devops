@@ -1,46 +1,29 @@
 plugins {
-	id("org.springframework.boot") version "2.7.17"
-	id("io.spring.dependency-management") version "1.0.15.RELEASE"
-	application
+    java
 }
 
-group = "com.example"
-version = "0.0.1-SNAPSHOT"
+subprojects {
+    group = "com.example"
+    version = "0.0.1-SNAPSHOT"
 
-java {
-	sourceCompatibility = JavaVersion.VERSION_1_8
-}
+    apply(plugin = "java")
 
-repositories {
-	mavenCentral()
-}
+    java {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
 
-val applications = listOf(
-		"com.example.microservice.AccountApplication",
-		"com.example.microservice.DraftApplication",
-		"com.example.microservice.LoanApplication",
-		"com.example.microservice.SettlementApplication"
-)
+    repositories {
+        mavenCentral()
+    }
 
-tasks.register("runApplications") {
-	group = "application"
-	dependsOn(applications.map { "run${it.replace(".", "")}" })
-}
+    dependencies {
+        implementation("org.springframework.boot:spring-boot-starter")
+        implementation("org.springframework.boot:spring-boot-starter-web")
+        testImplementation("org.springframework.boot:spring-boot-starter-test")
+    }
 
-applications.forEach { application ->
-	val applicationType = application.substringAfterLast(".")
-	tasks.register("run$applicationType", JavaExec::class) {
-		mainClass.set(application)
-		classpath = sourceSets.main.get().runtimeClasspath
-	}
-}
-
-dependencies {
-	implementation("org.springframework.boot:spring-boot-starter")
-	implementation("org.springframework.boot:spring-boot-starter-web")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
-}
-
-tasks.withType<Test> {
-	useJUnitPlatform()
+    tasks.withType<Test> {
+        useJUnitPlatform()
+    }
 }
