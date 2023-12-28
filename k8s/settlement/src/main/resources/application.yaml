@@ -1,0 +1,13 @@
+service:
+  account:
+    url: http://account/account
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+server:
+  port: 8082
+service:
+  account:
+    url: http://localhost:8081/account

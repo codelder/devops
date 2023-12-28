@@ -1,0 +1,15 @@
+service:
+  loan:
+    url: http://loan/loan
+  settlement:
+    url: http://settlement/settlement
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+service:
+  loan:
+    url: http://localhost:8083/loan
+  settlement:
+    url: http://localhost:8082/settlement
