@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: loan
-        image: registry.cn-hangzhou.aliyuncs.com/codelder/loan:k8s-2
+        image: registry.cn-hangzhou.aliyuncs.com/codelder/loan:k8s-4
         ports:
         - containerPort: 8080
       imagePullSecrets:
@@ -36,7 +36,7 @@ spec:
     spec:
       containers:
       - name: account
-        image: registry.cn-hangzhou.aliyuncs.com/codelder/account:k8s-2
+        image: registry.cn-hangzhou.aliyuncs.com/codelder/account:k8s-4
         ports:
         - containerPort: 8080
       imagePullSecrets:
@@ -58,7 +58,7 @@ spec:
     spec:
       containers:
       - name: settlement
-        image: registry.cn-hangzhou.aliyuncs.com/codelder/settlement:k8s-2
+        image: registry.cn-hangzhou.aliyuncs.com/codelder/settlement:k8s-4
         ports:
         - containerPort: 8080
       imagePullSecrets:
@@ -80,7 +80,7 @@ spec:
     spec:
       containers:
       - name: draft
-        image: registry.cn-hangzhou.aliyuncs.com/codelder/draft:k8s-3
+        image: registry.cn-hangzhou.aliyuncs.com/codelder/draft:k8s-4
         ports:
         - containerPort: 8080
       imagePullSecrets:

@@ -1,8 +1,8 @@
 service:
   loan:
-    url: http://loan/loan
+    url: http://loan.default.svc.cluster.local/loan
   settlement:
-    url: http://settlement/settlement
+    url: http://settlement.default.svc.cluster.local/settlement
 ---
 spring:
   config:

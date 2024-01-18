@@ -7,7 +7,7 @@ plugins {
 docker {
     springBootApplication {
         mainClassName.set("org.example.microservice.AccountApplication")
-        images.set(setOf("registry.cn-hangzhou.aliyuncs.com/codelder/account:k8s-2"))
+        images.set(setOf("registry.cn-hangzhou.aliyuncs.com/codelder/account:k8s-4"))
         baseImage.set("openjdk:8-alpine")
         ports.set(setOf(8080))
     }

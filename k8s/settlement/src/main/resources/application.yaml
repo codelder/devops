@@ -1,6 +1,6 @@
 service:
   account:
-    url: http://account/account
+    url: http://account.default.svc.cluster.local/account
 ---
 spring:
   config:
