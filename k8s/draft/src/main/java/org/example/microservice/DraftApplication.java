@@ -1,4 +1,4 @@
-package com.example.microservice;
+package org.example.microservice;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

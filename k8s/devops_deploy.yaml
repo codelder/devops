@@ -1,0 +1,136 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: loan-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: loan
+  template:
+    metadata:
+      labels:
+        app: loan
+    spec:
+      containers:
+      - name: loan
+        image: registry.cn-hangzhou.aliyuncs.com/codelder/loan:k8s-4
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: aliyun-acr
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: account-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: account
+  template:
+    metadata:
+      labels:
+        app: account
+    spec:
+      containers:
+      - name: account
+        image: registry.cn-hangzhou.aliyuncs.com/codelder/account:k8s-4
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: aliyun-acr
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: settlement-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: settlement
+  template:
+    metadata:
+      labels:
+        app: settlement
+    spec:
+      containers:
+      - name: settlement
+        image: registry.cn-hangzhou.aliyuncs.com/codelder/settlement:k8s-4
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: aliyun-acr
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: draft-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: draft
+  template:
+    metadata:
+      labels:
+        app: draft
+    spec:
+      containers:
+      - name: draft
+        image: registry.cn-hangzhou.aliyuncs.com/codelder/draft:k8s-4
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: aliyun-acr
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: draft-web
+spec:
+  selector:
+    app: draft
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080  # 你的 Web Pod 中应用的端口
+  type: NodePort
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: account
+spec:
+  selector:
+    app: account
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080  # 你的 Web Pod 中应用的端口
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: settlement
+spec:
+  selector:
+    app: settlement
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080  # 你的 Web Pod 中应用的端口
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: loan
+spec:
+  selector:
+    app: loan
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080  # 你的 Web Pod 中应用的端口
